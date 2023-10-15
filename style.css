@@ -1,0 +1,223 @@
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: indigo;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  line-height: 35px;
+  background: url(./images/img.jpg) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.section1 {
+  padding: 70px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(15, 23, 42, 0.6);
+}
+.section1 .rest {
+  position: relative;
+}
+.section1 .rest h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+.section1 .block {
+  background: rgba(225, 29, 71, 0.8);
+  max-width: 350px;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.section1 .block:last-child {
+  background: rgba(16, 185, 129, 0.8);
+}
+.section1 .block span:first-child {
+  font-size: 18px;
+}
+
+.calc {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: rgba(15, 23, 42, 0.8);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.calc * {
+  background: transparent;
+  color: #ddd;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 3px;
+}
+.calc select option {
+  color: black;
+}
+.calc input {
+  border: 1px solid transparent;
+  outline: 1px solid gray;
+  width: 100%;
+}
+.calc input[type=text] {
+  max-width: 300px;
+}
+.calc input[type=number] {
+  max-width: 100px;
+  /* Firefox */
+}
+.calc input[type=number]::-webkit-outer-spin-button, .calc input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.calc input[type=number][type=number] {
+  -moz-appearance: textfield;
+}
+.calc button {
+  cursor: pointer;
+  padding-inline: 10px;
+}
+
+.section2 {
+  background: rgba(15, 23, 42, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  padding: 30px 100px;
+  flex: 1;
+  display: flex;
+  gap: 50px;
+}
+.section2 .incomes,
+.section2 .expenses {
+  flex: 1;
+}
+.section2 .incomes h3,
+.section2 .expenses h3 {
+  margin-bottom: 20px;
+}
+.section2 .incomes .item-container .item,
+.section2 .expenses .item-container .item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding-top: 20px;
+  transition: 0.3s;
+}
+.section2 .incomes .item-container .item div p,
+.section2 .expenses .item-container .item div p {
+  line-height: 20px;
+  font-size: 18px;
+}
+.section2 .incomes .item-container .item div p:nth-child(2),
+.section2 .expenses .item-container .item div p:nth-child(2) {
+  font-size: 14px;
+  color: rgb(192, 191, 191);
+}
+.section2 .incomes .item-container .item .right,
+.section2 .expenses .item-container .item .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  transition: 0.3s;
+  position: relative;
+}
+.section2 .incomes .item-container .item .right svg,
+.section2 .expenses .item-container .item .right svg {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  width: 20px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.section2 .incomes .item-container .item .right svg path,
+.section2 .expenses .item-container .item .right svg path {
+  pointer-events: none;
+}
+.section2 .incomes .item-container .item .right svg:hover,
+.section2 .expenses .item-container .item .right svg:hover {
+  color: #e11d48;
+}
+.section2 .incomes .item-container .item:hover .right,
+.section2 .expenses .item-container .item:hover .right {
+  padding-right: 35px;
+}
+.section2 .incomes .item-container .item:hover .right svg,
+.section2 .expenses .item-container .item:hover .right svg {
+  visibility: visible;
+  opacity: 1;
+}
+
+.alert {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  color: #fff;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  position: fixed;
+  top: 1rem;
+  right: -200px;
+  font-size: 14px;
+  padding: 0 1rem;
+  transition: 0.5s;
+  opacity: 0;
+}
+.alert.alert-active {
+  top: 1rem;
+  right: 1rem;
+  opacity: 1;
+}
+.alert.alert-remove {
+  top: -200px;
+  right: 1rem;
+  opacity: 0;
+}
+.alert.alert-danger {
+  background-color: rgba(225, 29, 71, 0.7);
+  border: 1px solid #e11d48;
+}
+.alert.alert-success {
+  background-color: rgba(16, 185, 129, 0.7);
+  border: 1px solid #10b981;
+}
+
+.no-data.active {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
